@@ -19,6 +19,10 @@ export class UsersService {
         throw new HttpException('Такого пользователя не существует!', HttpStatus.NOT_FOUND)
     }
 
+    async findAll(){
+        return await this.usersRepository.find()
+    }
+
     async create(userDate: CreateUserDto){
         const user = {...userDate,
         isAdmin: false}
